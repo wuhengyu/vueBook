@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-input type="text" v-model.trim="content" />
+    <p>{{ content }}</p>
   </div>
 </template>
 

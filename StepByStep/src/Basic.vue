@@ -5,6 +5,7 @@ import countClick from "./components/countClick.vue";
 import login from "./components/login.vue";
 import FatherComponents from "./components/VModel/FatherComponents.vue";
 import VModelTrim from "./components/VModel/VModelTrim.vue";
+import VModelcheckList from "./components/VModel/VModelcheckList.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -12,6 +13,7 @@ const routes = {
   "/login": login,
   "/FatherComponents": FatherComponents,
   "/VModelTrim": VModelTrim,
+  "/VModelcheckList": VModelcheckList,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -30,6 +32,8 @@ const currentView = computed(() => {
     <h3>文本框父子数据同步</h3>
     <a href="#/FatherComponents">FatherComponents</a> |
     <a href="#/VModelTrim">VModelTrim</a> |
+    <a href="#/VModelcheckList">VModelcheckList</a> |
     <component :is="currentView" />
   </div>
 </template>
+
