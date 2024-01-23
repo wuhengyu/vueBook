@@ -8,7 +8,7 @@
           <el-input
             type="text"
             placeholder="请输入用户名"
-            v-model="userInfo.username"
+            v-model.lazy="userInfo.username"
           />
         </el-form-item>
       </div>
