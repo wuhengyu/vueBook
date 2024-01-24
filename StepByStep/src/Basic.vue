@@ -6,14 +6,16 @@ import login from "./components/login.vue";
 import FatherComponents from "./components/VModel/FatherComponents.vue";
 import VModelTrim from "./components/VModel/VModelTrim.vue";
 import VModelcheckList from "./components/VModel/VModelcheckList.vue";
+import UserRegistration from "./components/example/UserRegistration.vue";
 
 const routes = {
   "/countClick": countClick,
   "/non-existent-path": NotFound,
-  "/login": login,
+  "/": login,
   "/FatherComponents": FatherComponents,
   "/VModelTrim": VModelTrim,
   "/VModelcheckList": VModelcheckList,
+  "/UserRegistration": UserRegistration,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -33,6 +35,9 @@ const currentView = computed(() => {
     <a href="#/FatherComponents">FatherComponents</a> |
     <a href="#/VModelTrim">VModelTrim</a> |
     <a href="#/VModelcheckList">VModelcheckList</a> |
+
+    <h3>用户注册</h3>
+    <a href="#/UserRegistration">UserRegistration</a> |
     <component :is="currentView" />
   </div>
 </template>
