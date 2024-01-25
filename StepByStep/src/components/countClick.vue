@@ -10,6 +10,12 @@ const props = defineProps({
     default: "class",
   },
 });
+const colorStyle = { blue: false, red: true };
+const colorList1 = "colorList1";
+const colorList2 = "colorList2";
+const colorList3 = "colorList3";
+const textColor = "yellow";
+const textFont = "40px";
 
 function buttonClick() {
   count.value += 1;
@@ -37,6 +43,13 @@ function buttonClick2() {
     <h1 v-bind:id="countColor">id选择器</h1>
     <!-- 动态属性绑定 -->
     <h1 v-bind:[dynamicAttr]="countColor">类选择器</h1>
+    <!-- class属性可绑定的值并不会冲突，如果设置的对象中有多个属性的值都是true，则都会被添加到class属性中 -->
+    <h1 :class="{ blue: true, red: false }">绑定对象1</h1>
+    <h1 :class="colorStyle">绑定对象2</h1>
+    <h1 :class="[colorList1, colorList2]">绑定对象3</h1>
+    <h1 :class="[colorList3]">绑定对象4</h1>
+    <!-- 内联设置的CSS与外部定义的CSS有一点区别，外部定义的CSS属性在命名时，多采用“-”符号进行连接（如font-size），而内联的CSS中属性的命名采用的是驼峰命名法（如fontSize） -->
+    <h1 :style="{ color: textColor, fontSize: textFont }">內联样式</h1>
   </div>
 </template>
 
@@ -46,6 +59,21 @@ function buttonClick2() {
 }
 .colorId {
   color: rgb(33, 223, 96);
+}
+.blue {
+  color: blue;
+}
+.red {
+  color: red;
+}
+.colorList1 {
+  color: rgb(235, 61, 221);
+}
+.colorList2 {
+  color: rgb(181, 223, 32);
+}
+.colorList3 {
+  color: rgb(255, 165, 0);
 }
 </style>
 
