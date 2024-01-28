@@ -1,12 +1,23 @@
 <script setup>
 import { ref, computed } from "vue";
-import NotFound from "./components/NotFound.vue";
-import countClick from "./components/countClick.vue";
-import login from "./components/login.vue";
+import tableDemo from "./components/03/tableDemo.vue";
+import countClick from "./components/03/countClick.vue";
+import login from "./components/03/login.vue";
 import FatherComponents from "./components/VModel/FatherComponents.vue";
 import VModelTrim from "./components/VModel/VModelTrim.vue";
 import VModelcheckList from "./components/VModel/VModelcheckList.vue";
 import UserRegistration from "./components/example/UserRegistration.vue";
+import NotFound from "./components/NotFound.vue";
+import eventClick from "./components/04/eventClick.vue";
+import eventModifier from "./components/04/eventModifier.vue";
+import eventType from "./components/04/eventType.vue";
+import titleFather from "./components/05/titleFather.vue";
+import vmodelText from "./components/05/vmodelText.vue";
+import vmodelFather from "./components/05/vmodelFather.vue";
+import slotFather from "./components/05/slot/slotFather.vue";
+import slotPage from "./components/05/slot/slotPage.vue";
+import ToggleSwitch from "./components/05/ToggleSwitch.vue";
+import switchFather from "./components/05/switchFather.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -16,6 +27,17 @@ const routes = {
   "/VModelTrim": VModelTrim,
   "/VModelcheckList": VModelcheckList,
   "/UserRegistration": UserRegistration,
+  "/tableDemo": tableDemo,
+  "/eventClick": eventClick,
+  "/eventModifier": eventModifier,
+  "/eventType": eventType,
+  "/titleFather": titleFather,
+  "/vmodelText": vmodelText,
+  "/vmodelFather": vmodelFather,
+  "/slotFather": slotFather,
+  "/slotPage": slotPage,
+  "/ToggleSwitch": ToggleSwitch,
+  "/switchFather": switchFather,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -30,6 +52,7 @@ const currentView = computed(() => {
     <h1>第二章</h1>
     <h3>登录</h3>
     <a href="#/countClick">countClick</a> | <a href="#/login">login</a> |
+    <a href="#/tableDemo">tableDemo</a> |
 
     <h3>文本框父子数据同步</h3>
     <a href="#/FatherComponents">FatherComponents</a> |
@@ -38,6 +61,15 @@ const currentView = computed(() => {
 
     <h3>用户注册</h3>
     <a href="#/UserRegistration">UserRegistration</a> |
+    <a href="#/eventClick">eventClick</a> |
+    <a href="#/eventModifier">eventModifier</a> |
+    <a href="#/eventType">eventType</a> |
+    <a href="#/titleFather">titleFather</a> |
+    <a href="#/vmodelText">vmodelText</a> |
+    <a href="#/vmodelFather">vmodelFather</a> |
+    <a href="#/slotFather">slotFather</a> | <a href="#/slotPage">slotPage</a> |
+    <a href="#/ToggleSwitch">ToggleSwitch</a> |
+    <a href="#/switchFather">switchFather</a>
     <component :is="currentView" />
   </div>
 </template>

@@ -130,9 +130,14 @@ const fields = reactive({
 import { reactive, computed } from "vue";
 const fields = reactive([
   { title: "用户名", required: true, type: "text", model: "" },
-  { title: "邮箱地址", required: false, type: "text", model: "" },
+  { title: "邮箱地址", required: true, type: "text", model: "" },
   { title: "密码", required: true, type: "password", model: "" },
 ]);
+
+// 计算属性适用于处理属性之间的关系和复杂的计算逻辑，而data对象适用于存储组件的状态数据。
+// 计算属性可以根据需要进行设置和获取，而不需要显式地调用方法。
+// 计算属性使得你可以通过直接访问name、email和password来获取和设置相关属性的值，而无需显式地调用方法。
+// 普通属性的本质是存储属性，计算属性的本质是调用函数
 
 // computed属性是用来声明依赖于其他属性的计算属性，它会根据这些属性的变化自动进行重新计算。
 const name = computed({
@@ -166,6 +171,9 @@ const password = computed({
     fields[2].model = value;
   },
 });
+
+// 调用set方法
+// name.value = "123";
 </script>
 
 <style lang="scss" scoped>
