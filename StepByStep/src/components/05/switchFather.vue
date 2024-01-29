@@ -22,7 +22,7 @@
 
 <script setup>
 import { ref } from "vue";
-import switchChild from "./SwitchChild.vue";
+import switchChild from "./switchChild.vue";
 
 const state1 = ref("关闭");
 const state2 = ref("关闭");

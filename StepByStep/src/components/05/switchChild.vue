@@ -1,6 +1,6 @@
 <template>
   <div :style="cssStyleBG" @click="click">
-    <div :style="cssStyleBtn"></div>
+    <div :style="cssStyleBtn">111</div>
   </div>
 </template>
 
