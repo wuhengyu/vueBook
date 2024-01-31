@@ -1,22 +1,20 @@
 <template>
   <div>
+    <br />
     <switchChild
       @switch-change="change1"
       switch-style="mini"
-      background-color="green"
       border-color="gray"
       color="blue"
     />
-    <div>开关状态：{{ state1 }}</div>
-    <br />
+    <h3>开关状态：{{ state1 }}</h3>
     <switchChild
       @switch-change="change2"
-      switch-style="mini"
-      background-color="blue"
+      switch-style="nomini"
       border-color="gray"
       color="red"
     />
-    <div>开关状态：{{ state2 }}</div>
+    <h3>开关状态：{{ state2 }}</h3>
   </div>
 </template>
 

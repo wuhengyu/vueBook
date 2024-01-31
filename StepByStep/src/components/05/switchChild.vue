@@ -12,7 +12,7 @@ const props = defineProps({
   borderColor: String,
   background: {
     type: String,
-    default: "blue",
+    // default: "blue",
   },
   color: String,
 });
@@ -24,24 +24,27 @@ const isOpen = ref(false);
 const cssStyleBG = computed(() => {
   const baseStyles = {
     position: "relative",
-    borderWidth: "2px",
+    borderWidth: "0.01px",
     borderStyle: "solid",
     width: "55px",
     height: "30px",
     borderColor: props.borderColor,
+    marginLeft: "500px",
   };
 
   if (props.switchStyle === "mini") {
     return {
       ...baseStyles,
       borderRadius: "30px",
-      backgroundColor: isOpen.value ? props.background : "white",
+      // backgroundColor: isOpen.value ? props.background : "white",
+      backgroundColor: isOpen.value ? "blue" : "white",
     };
   } else {
     return {
       ...baseStyles,
-      borderRadius: "10px",
-      backgroundColor: isOpen.value ? props.background : "white",
+      borderRadius: "30px",
+      // backgroundColor: isOpen.value ? props.background : "white",
+      backgroundColor: isOpen.value ? "red" : "white",
     };
   }
 });
@@ -49,7 +52,7 @@ const cssStyleBG = computed(() => {
 const cssStyleBtn = computed(() => {
   const btnBaseStyles = {
     position: "absolute",
-    borderWidth: "2px",
+    borderWidth: "0.01px",
     borderStyle: "solid",
     width: "30px",
     height: "30px",
@@ -58,7 +61,10 @@ const cssStyleBtn = computed(() => {
 
   // 假设btn的位置只在switchStyle为"mini"时变化，这里可以根据实际需求调整
   let leftValue = "0px";
-  if (props.switchStyle === "mini" && isOpen.value) {
+  if (
+    (props.switchStyle === "mini" || props.switchStyle === "nomini") &&
+    isOpen.value
+  ) {
     leftValue = "25px";
   }
 
@@ -67,7 +73,7 @@ const cssStyleBtn = computed(() => {
     left: leftValue,
     ...(props.switchStyle === "mini"
       ? { borderRadius: "50%" }
-      : { borderRadius: "8px" }),
+      : { borderRadius: "70%" }),
   };
 });
 
