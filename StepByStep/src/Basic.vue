@@ -6,7 +6,7 @@ import login from "./components/03/login.vue";
 import FatherComponents from "./components/vmodel/FatherComponents.vue";
 import VModelTrim from "./components/vmodel/VModelTrim.vue";
 import VModelcheckList from "./components/vmodel/VModelcheckList.vue";
-import UserRegistration from "./components/example/UserRegistration.vue";
+import userRegistration from "./components/example/userRegistration.vue";
 import NotFound from "./components/NotFound.vue";
 import eventClick from "./components/04/eventClick.vue";
 import eventModifier from "./components/04/eventModifier.vue";
@@ -16,8 +16,10 @@ import vmodelText from "./components/05/vmodelText.vue";
 import vmodelFather from "./components/05/vmodelFather.vue";
 import slotFather from "./components/05/slot/slotFather.vue";
 import slotPage from "./components/05/slot/slotPage.vue";
-import ToggleSwitch from "./components/05/ToggleSwitch.vue";
 import switchFather from "./components/05/switchFather.vue";
+import componentsLife from "./components/06/componentsLife.vue";
+import mixinFather from "./components/06/mixinFather.vue";
+import mixins from "./components/06/mixins.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -26,7 +28,7 @@ const routes = {
   "/FatherComponents": FatherComponents,
   "/VModelTrim": VModelTrim,
   "/VModelcheckList": VModelcheckList,
-  "/UserRegistration": UserRegistration,
+  "/userRegistration": userRegistration,
   "/tableDemo": tableDemo,
   "/eventClick": eventClick,
   "/eventModifier": eventModifier,
@@ -36,8 +38,10 @@ const routes = {
   "/vmodelFather": vmodelFather,
   "/slotFather": slotFather,
   "/slotPage": slotPage,
-  "/ToggleSwitch": ToggleSwitch,
   "/switchFather": switchFather,
+  "/componentsLife": componentsLife,
+  "/mixinFather": mixinFather,
+  "/mixins": mixins,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -60,7 +64,7 @@ const currentView = computed(() => {
     <a href="#/VModelcheckList">VModelcheckList</a> |
 
     <h3>用户注册</h3>
-    <a href="#/UserRegistration">UserRegistration</a> |
+    <a href="#/userRegistration">userRegistration</a> |
     <a href="#/eventClick">eventClick</a> |
     <a href="#/eventModifier">eventModifier</a> |
     <a href="#/eventType">eventType</a> |
@@ -68,9 +72,10 @@ const currentView = computed(() => {
     <a href="#/vmodelText">vmodelText</a> |
     <a href="#/vmodelFather">vmodelFather</a> |
     <a href="#/slotFather">slotFather</a> | <a href="#/slotPage">slotPage</a> |
-    <a href="#/ToggleSwitch">ToggleSwitch</a> |
-    <a href="#/switchFather">switchFather</a>
+    <a href="#/switchFather">switchFather</a> |
+    <a href="#/componentsLife">componentsLife</a> |
+    <a href="#/mixinFather">mixinFather</a> |
+    <a href="#/mixins">mixins</a>
     <component :is="currentView" />
   </div>
 </template>
-
