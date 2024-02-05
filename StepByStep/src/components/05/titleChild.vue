@@ -24,3 +24,23 @@ function click() {
 
 <style lang="scss" scoped>
 </style>
+
+<!-- 选项式API -->
+
+<!-- <script>
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ['myclick'],
+  methods: {
+    click() {
+      console.log('appfunc');
+      this.$emit('myclick', 'hello world');
+    },
+  },
+};
+</script> -->
