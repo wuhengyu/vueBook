@@ -1,30 +1,31 @@
 <template>
   <div>
-    <p>{{ message }}</p>
-    <button @click="logMessage">打印消息</button>
+    <p>{{ mixinMessage }}</p>
   </div>
 </template>
 
 <script>
-// 定义mixin也非常简单，它就是一个对象而已，只不过这个对象里面可以包含Vue组件中的一些常见配置，如data、methods、created等等
 const myMixin = {
-  setup() {
-    const message = ref("Hello, mixins!");
-  }
   data() {
     return {
-      message: "Hello, mixins!",
+      mixinMessage: "Mixin中的消息",
     };
   },
-  methods: {
-    logMessage() {
-      console.log(this.message);
-    },
+  created() {
+    console.log("Mixin被创建");
   },
 };
 
-// 我们的公共mixin定义好后，最重要就是如何使用它。根据不同的业务场景，我们可以分为两种：局部混入和全局混入。顾名思义，局部混入和组件的按需加载有点类似，就是需要用到mixin中的代码时，我们再在组件章引入它。全局混入的话，则代表我在项目的任何组件中都可以使用mixin。
 export default {
   mixins: [myMixin],
+  data() {
+    return {
+      mixinMessage: "相同属性，组件中的消息",
+    };
+  },
+  created() {
+    console.log("组件被创建");
+    console.log(this.mixinMessage); // 输出：组件中的消息
+  },
 };
 </script>

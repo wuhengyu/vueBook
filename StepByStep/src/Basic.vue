@@ -20,6 +20,7 @@ import switchFather from "./components/05/switchFather.vue";
 import componentsLife from "./components/06/componentsLife.vue";
 import mixinFather from "./components/06/mixinFather.vue";
 import mixins from "./components/06/mixins.vue";
+import mixins2 from "./components/06/mixins2.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -42,6 +43,7 @@ const routes = {
   "/componentsLife": componentsLife,
   "/mixinFather": mixinFather,
   "/mixins": mixins,
+  "/mixins2": mixins2,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -74,8 +76,9 @@ const currentView = computed(() => {
     <a href="#/slotFather">slotFather</a> | <a href="#/slotPage">slotPage</a> |
     <a href="#/switchFather">switchFather</a> |
     <a href="#/componentsLife">componentsLife</a> |
-    <a href="#/mixinFather">mixinFather</a> |
-    <a href="#/mixins">mixins</a>
+    <a href="#/mixinFather">mixinFather</a> | <a href="#/mixins">mixins</a> |
+    <a href="#/mixins2">mixins2</a> |
+
     <component :is="currentView" />
   </div>
 </template>
