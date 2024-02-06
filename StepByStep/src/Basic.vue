@@ -21,6 +21,7 @@ import componentsLife from "./components/06/componentsLife.vue";
 import mixinFather from "./components/06/mixinFather.vue";
 import mixins from "./components/06/mixins.vue";
 import mixins2 from "./components/06/mixins2.vue";
+import reactObj from "./components/07/reactObj.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -44,6 +45,7 @@ const routes = {
   "/mixinFather": mixinFather,
   "/mixins": mixins,
   "/mixins2": mixins2,
+  "/reactObj": reactObj,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -78,7 +80,7 @@ const currentView = computed(() => {
     <a href="#/componentsLife">componentsLife</a> |
     <a href="#/mixinFather">mixinFather</a> | <a href="#/mixins">mixins</a> |
     <a href="#/mixins2">mixins2</a> |
-
+    <a href="#/reactObj">reactObj</a>
     <component :is="currentView" />
   </div>
 </template>
