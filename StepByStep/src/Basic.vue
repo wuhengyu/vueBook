@@ -22,6 +22,13 @@ import mixinFather from "./components/06/mixinFather.vue";
 import mixins from "./components/06/mixins.vue";
 import mixins2 from "./components/06/mixins2.vue";
 import reactObj from "./components/07/reactObj.vue";
+import reactObj1 from "./components/07/reactObj1.vue";
+import reactObj2 from "./components/07/reactObj2.vue";
+import computedSum from "./components/07/computedSum.vue";
+import watchEffect from "./components/07/watchEffect.vue";
+import effectRef from "./components/07/effectRef.vue";
+import setupMethod from "./components/07/setupMethod.vue";
+import normalExample from "./components/07/normalExample.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -46,6 +53,13 @@ const routes = {
   "/mixins": mixins,
   "/mixins2": mixins2,
   "/reactObj": reactObj,
+  "/reactObj1": reactObj1,
+  "/reactObj2": reactObj2,
+  "/computedSum": computedSum,
+  "/watchEffect": watchEffect,
+  "/effectRef": effectRef,
+  "/setupMethod": setupMethod,
+  "/normalExample": normalExample
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -80,7 +94,14 @@ const currentView = computed(() => {
     <a href="#/componentsLife">componentsLife</a> |
     <a href="#/mixinFather">mixinFather</a> | <a href="#/mixins">mixins</a> |
     <a href="#/mixins2">mixins2</a> |
-    <a href="#/reactObj">reactObj</a>
+    <a href="#/reactObj">reactObj</a> |
+    <a href="#/reactObj1">reactObj1</a> |
+    <a href="#/reactObj2">reactObj2</a> |
+    <a href="#/computedSum">computedSum</a> |
+    <a href="#/watchEffect">watchEffect</a> |
+    <a href="#/effectRef">effectRef</a> |
+    <a href="#/setupMethod">setupMethod</a> |
+    <a href="#/normalExample">normalExample</a> |
     <component :is="currentView" />
   </div>
 </template>
