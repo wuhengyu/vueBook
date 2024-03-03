@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <com name="子组件组件名"></com>
-  </div>
+<div>
+  <com name="子组件组件名"></com>
+</div>
 </template>
 
 <script>
 // h是Vue的渲染函数，用于创建VNode（虚拟DOM节点）；onMounted是Vue生命周期钩子之一，它会在组件实例被挂载到DOM后执行
-import { h, onMounted } from 'vue'
+import {
+  h,
+  onMounted
+} from 'vue'
 export default {
   mounted() {
     console.log("组件内定义的mounted");
@@ -19,6 +22,9 @@ export default {
         name: String,
       },
       // setup(props, context)是Vue 3中用来替代data、methods等选项的新特性函数
+      // setup方法特殊的执行时机，除了可以访问组件的传参外部属性props之外，在其内部不能使用this来引用组件的其他属性
+      // 在setup方法最后，可以将定义的组件所需要的数据、方法等内容暴露给组件的其他选项（生命周期函数、业务方法、计算属性）
+      // setup方法不要使用this关键字，setup方法中的this与当前组件实例并不是同一对象
       setup(props, context) {
         // props：包含了所有父组件传递过来的属性，此处通过console.log(props.name)输出接收到的name属性值。
         console.log(props.name);
@@ -38,6 +44,7 @@ export default {
           console.log("setup定义的mounted");
         });
 
+        // 渲染函数
         // 子组件将渲染一个包含字符串data内容的div元素。这里的h函数就是Vue的虚拟DOM构造函数，用于生成VNode
         return () => h('div', data);
       },
