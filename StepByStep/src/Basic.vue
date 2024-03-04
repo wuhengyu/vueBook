@@ -29,6 +29,9 @@ import watchEffect from "./components/07/watchEffect.vue";
 import effectRef from "./components/07/effectRef.vue";
 import setupMethod from "./components/07/setupMethod.vue";
 import normalExample from "./components/07/normalExample.vue";
+import setupLife from "./components/07/setupLife.vue";
+import normalExample2 from "./components/07/normalExample2.vue";
+import transitionExample from "./components/08/transitionExample.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -59,7 +62,10 @@ const routes = {
   "/watchEffect": watchEffect,
   "/effectRef": effectRef,
   "/setupMethod": setupMethod,
-  "/normalExample": normalExample
+  "/normalExample": normalExample,
+  "/setupLife": setupLife,
+  "/normalExample2": normalExample2,
+  "/transitionExample": transitionExample,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -102,6 +108,11 @@ const currentView = computed(() => {
     <a href="#/effectRef">effectRef</a> |
     <a href="#/setupMethod">setupMethod</a> |
     <a href="#/normalExample">normalExample</a> |
+    <a href="#/setupLife">setupLife</a> |
+    <a href="#/normalExample2">normalExample2</a> |
+
+    <h3>过渡动画</h3>
+    <a href="#/transitionExample">transitionExample</a> |
     <component :is="currentView" />
   </div>
 </template>
