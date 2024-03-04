@@ -48,12 +48,13 @@ export default {
   },
   mounted() {
     // 模拟请求过程
-    setTimeout(this.queryAllData, 3000);
+    setTimeout(this.queryAllData, 1000);
   },
   methods: {
     queryAllData() {
       this.showDatas = mock;
     },
+    // 筛选性别
     filterData() {
       this.searchKey = "";
       if (this.sexFilter === -1) {
@@ -64,12 +65,19 @@ export default {
         });
       }
     },
+
+    // 当用户在界面输入搜索关键词并触发了searchKey的更新时，这个代码片段就会被执行。它会遍历mock数组，并筛选出所有姓名中包含搜索关键词的对象，将这些对象组成的新的数组赋值给组件状态变量this.showDatas，从而在视图层展示过滤后的结果。
     searchData() {
       this.sexFilter = -1;
       if (this.searchKey.length === 0) {
         this.showDatas = mock;
       } else {
+        // 该方法利用JavaScript数组的内置方法filter()对mock数组中的每个元素执行一个测试（函数），并返回通过测试的所有元素组成的新数组。
         this.showDatas = mock.filter((data) => {
+          // (data) => { return data.name.includes(this.searchKey); } 是传递给filter()方法的回调函数。对于数组mock中的每一个对象data
+          // 检查当前对象data的name属性值是否包含组件状态变量this.searchKey的值。includes()是字符串方法，用于判断一个字符串是否包含另一个指定的子字符串
+          // data 是一个参数，代表的是数组 mock 中当前正在被遍历到的元素。在JavaScript数组的 filter() 方法内部，这个回调函数 (data) => {...} 会为数组中的每一个对象执行一次。
+          // data 是一个对象，具有 name 和 sex 属性
           return data.name.includes(this.searchKey);
         });
       }
