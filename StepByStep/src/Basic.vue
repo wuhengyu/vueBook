@@ -32,6 +32,13 @@ import normalExample from "./components/07/normalExample.vue";
 import setupLife from "./components/07/setupLife.vue";
 import normalExample2 from "./components/07/normalExample2.vue";
 import transitionExample from "./components/08/transitionExample.vue";
+import keyframes from "./components/08/keyframes.vue";
+import jsAnimation from "./components/08/jsAnimation.vue";
+import vueTransition from "./components/08/vueTransition.vue";
+import observer from "./components/08/observer.vue";
+import vueMTransition from "./components/08/vueMTransition.vue";
+import listAnimation from "./components/08/listAnimation.vue";
+import userListDemo from "./components/08/userListDemo.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -66,6 +73,13 @@ const routes = {
   "/setupLife": setupLife,
   "/normalExample2": normalExample2,
   "/transitionExample": transitionExample,
+  "/keyframes": keyframes,
+  "/jsAnimation": jsAnimation,
+  "/vueTransition": vueTransition,
+  "/observer": observer,
+  "/vueMTransition": vueMTransition,
+  "/listAnimation": listAnimation,
+  "/userListDemo": userListDemo,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -113,6 +127,13 @@ const currentView = computed(() => {
 
     <h3>过渡动画</h3>
     <a href="#/transitionExample">transitionExample</a> |
+    <a href="#/keyframes">keyframes</a> |
+    <a href="#/jsAnimation">jsAnimation</a> |
+    <a href="#/vueTransition">vueTransition</a> |
+    <a href="#/observer">observer</a> |
+    <a href="#/vueMTransition">vueMTransition</a> |
+    <a href="#/listAnimation">listAnimation</a> | 
+    <a href="#/userListDemo">userListDemo</a>
     <component :is="currentView" />
   </div>
 </template>

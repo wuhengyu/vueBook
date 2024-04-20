@@ -38,12 +38,12 @@ export default {
   // 高度为100px
   height: 100px;
   // 背景颜色为红色
-  background-color: red;
+  background-color: rgb(39, 211, 54);
   // 过渡属性为宽度、高度和背景颜色
   transition-property: width, height, background-color;
   // 过渡持续时间为1s
   transition-duration: 1s;
-  // 过渡速度曲线为线性
+  // 过渡速度曲线为线性匀速
   transition-timing-function: linear;
   // 过渡延迟为2s
   transition-delay: 2s;
