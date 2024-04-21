@@ -1,15 +1,13 @@
 <template>
 <div class="hello">
   <!-- 插值表达式 -->
-  <!-- <h1>{{ msg }}</h1> -->
+  <h1>{{ msg }}</h1>
 </div>
 </template>
 
 <script lang="ts">
 // defineComponent是Vue提供的用于定义组件的工具函数
-import {
-  defineComponent
-} from 'vue';
+import {defineComponent} from 'vue';
 import axios from 'axios';
 
 export default defineComponent({
