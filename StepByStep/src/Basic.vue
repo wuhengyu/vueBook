@@ -39,6 +39,7 @@ import observer from "./components/08/observer.vue";
 import vueMTransition from "./components/08/vueMTransition.vue";
 import listAnimation from "./components/08/listAnimation.vue";
 import userListDemo from "./components/08/userListDemo.vue";
+import axiosDemo from "./components/11/axiosDemo.vue";
 
 const routes = {
   "/countClick": countClick,
@@ -80,6 +81,7 @@ const routes = {
   "/vueMTransition": vueMTransition,
   "/listAnimation": listAnimation,
   "/userListDemo": userListDemo,
+  "/axiosDemo": axiosDemo,
 };
 const currentPath = ref(window.location.hash);
 window.addEventListener("hashchange", () => {
@@ -134,6 +136,10 @@ const currentView = computed(() => {
     <a href="#/vueMTransition">vueMTransition</a> |
     <a href="#/listAnimation">listAnimation</a> | 
     <a href="#/userListDemo">userListDemo</a>
+
+    <h1>第11章</h1>
+    <h3>vue-axios</h3>
+    <a href="#/axiosDemo">axiosDemo</a> |
     <component :is="currentView" />
   </div>
 </template>
