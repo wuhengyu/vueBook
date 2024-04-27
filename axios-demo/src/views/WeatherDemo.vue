@@ -5,6 +5,7 @@
                 <template #prepend>城市名：</template>
             </el-input>
         </el-header>
+        
         <el-main class="main">
             <div class="today">
                 今天：
@@ -12,16 +13,19 @@
                 <span style="margin-left:20px">{{this.todayData.direct ?? this.plc}}</span>
                 <span style="margin-left:100px">{{this.todayData.date}}</span>
             </div>
+
             <div class="real">
                 <span class="temp">{{this.realtime.temperature ?? this.plc}}°</span>
                 <span class="realInfo">{{this.realtime.info ?? this.plc}}</span>
                 <span class="realInfo" style="margin-left:20px">{{this.realtime.direct ?? this.plc}}</span>
                 <span class="realInfo" style="margin-left:20px">{{this.realtime.power ?? this.plc}}</span>
             </div>
+
             <div class="real">
                 <span class="realInfo">空气质量：{{this.realtime.aqi ?? this.plc}}°</span>
                 <span class="realInfo" style="margin-left:20px">湿度：{{this.realtime.humidity ?? this.plc}}</span>
             </div>
+
             <div class="future">
                 <div class="header">5日天气预报</div>
                 <el-table :data="futureData" style="margin-top:30px">
