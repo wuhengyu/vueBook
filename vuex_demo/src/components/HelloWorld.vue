@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <h1>计数器1:{{ count }}</h1>
   <button @click="increment">增加</button>
 </template>
@@ -15,9 +15,9 @@
       }
     }
   }
-</script>
+</script> -->
 
-<!-- <template>
+<template>
   <h1>计数器1:{{ this.$store.getters.countText }}</h1>
   <button @click="increment">增加</button>
 </template>
@@ -30,4 +30,4 @@ export default {
     }
   }
 }
-</script> -->
+</script>
