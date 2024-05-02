@@ -7,6 +7,11 @@
   <router-link to="/User/001">用户编号</router-link> | 
   <router-link to="/category/222/333/444">用户类别</router-link> | 
   <router-link to="/home/张三/1234567890">路由视图</router-link> | 
+  <router-link to="/chongdingxiang1">重定向1</router-link> | 
+  <router-link to="/chongdingxiang2">重定向2</router-link> | 
+  <router-link to="/login">登录重定向</router-link> | 
+  <router-link to="/s/12345">别名1</router-link> | 
+  <router-link to="/setting/12345678">别名2</router-link> | 
   <router-link :to="{ name: 'user', params: { username: '小王' }}">router-link路由切换</router-link>
 </nav>
 
