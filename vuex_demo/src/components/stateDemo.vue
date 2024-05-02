@@ -13,7 +13,7 @@ import { mapState } from 'vuex'
 export default {
   methods: {
     increment() {
-      this.$store.commit('increment')
+      this.$store.commit('increment', 5)
     },
   },
   // computed: mapState(['count'])

@@ -18,7 +18,7 @@
 </script> -->
 
 <template>
-  <h1>计数器1:{{ this.$store.getters.countText }}</h1>
+  <h1>countText计数器1:{{ this.$store.getters.countText('次数1') }}</h1>
   <button @click="increment">增加</button>
 </template>
 
@@ -26,7 +26,7 @@
 export default {
   methods: {
     increment() {
-      this.$store.commit('increment')
+      this.$store.commit('increment', 2)
     }
   }
 }

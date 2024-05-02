@@ -19,7 +19,7 @@ export default {
 </script> -->
 
 <template>
-  <h1>计数器2:{{ this.$store.state.count }}</h1>
+  <h1>state计数器2:{{ this.$store.state.count }}</h1>
   <button @click="increment">增加</button>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   export default {
     methods: {
       increment() {
-        this.$store.commit('increment')
+        this.$store.commit('increment', 4)
       }
     }
   }

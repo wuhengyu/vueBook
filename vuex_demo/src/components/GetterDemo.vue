@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>getters计数器1:{{ this.$store.getters.countText }}</h1>
-    <h1>getters计数器2:{{ countText }}</h1>
+    <h1>getters计数器1:{{ this.$store.getters.countText('次数2') }}</h1>
+    <h1>getters计数器2:{{ countText('次数3') }}</h1>
     <h1>getters计数器3:{{ getCountTextWithUnit('哈哈哈哈哈') }}</h1>
     <h1>getters计数器4:{{ countWithUnit }}</h1>
     <button @click="increment">增加</button>
@@ -13,7 +13,7 @@ import { mapGetters } from 'vuex'
 export default {
   methods: {
     increment() {
-      this.$store.commit('increment')
+      this.$store.commit('increment', 3)
     },
     getCountTextWithUnit(unit) {
       return this.countText + unit;

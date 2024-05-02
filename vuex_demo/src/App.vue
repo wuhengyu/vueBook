@@ -11,6 +11,7 @@
   <HelloWorld2 />
   <stateDemo />
   <GetterDemo />
+  <actionsDemo />
 </template>
 
 <script>
@@ -18,6 +19,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import HelloWorld2 from './components/HelloWorld2.vue'
 import stateDemo from './components/stateDemo.vue'
 import GetterDemo from './components/GetterDemo.vue'
+import actionsDemo from './components/actionsDemo.vue'
 
 export default {
   name: 'App',
@@ -26,6 +28,7 @@ export default {
     HelloWorld2,
     stateDemo,
     GetterDemo,
+    actionsDemo
   }
 }
 </script>

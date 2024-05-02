@@ -11,19 +11,34 @@ const store = createStore({
     state() {
         return {
             count:0,
-            countText:0
         }
     },
     // 定义修改状态的方法
     mutations: {
-        increment(state:{ count: number }) {
-            state.count ++
+        increment(state:{ count: number }, n) {
+            state.count += n
         }
     },
-    // :{ count: number }
+        
     getters: {
         countText (state) {
-            return state.count + "次"
+            // return state.count + "次"
+            return (s: string) => {
+                return state.count + s
+            }
+        }
+    },
+    // actions: {
+    //     increment(context, n) {
+    //         context.commit('increment', n)
+    //     }
+    // }
+    // 模拟异步获取数据
+    actions: {
+        asyncIncrement(context, n) {
+            setTimeout(() => {
+                context.commit('increment', n)
+            }, 200);
         }
     }
 })
