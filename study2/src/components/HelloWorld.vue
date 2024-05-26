@@ -51,21 +51,43 @@
 
           <el-header height="80px" style="padding: 0;margin: 0;">
             <el-container class="subHeader">
-              <div class="desc">{{ desc }}</div>
+              <!-- <div class="desc-wrapper"> -->
+                <div class="desc">{{ desc }}</div>
+              <!-- </div> -->
+              <!-- 设置按钮父容器的样式，使其内部内容居右 -->
+            <div class="button-container">
               <el-button style="width: 100px;height: 30px;margin: 20px;">新增记录</el-button>
+            </div>
             </el-container>
           </el-header>
 
+          <!-- 显示列表数据 -->
           <el-main style="margin: 0;padding: 0;">
             <div class="content">
-              <el-table :data="stus">
-                <el-table-column label="姓名" prop="name">
+              <!-- stripe斑马条纹、border竖直方向的边框 -->
+              <!-- <el-table :data="tableData" stripe border :row-class-name="tableRowClassName" style="width: 100%"> -->
+              <el-table :data="tableData" border :row-class-name="tableRowClassName" style="width: 100%">
+                <el-table-column label="姓名" prop="name" width="180" type="selection">
                 </el-table-column>
                 <el-table-column label="年龄" prop="age">
                 </el-table-column>
                 <el-table-column label="性别" prop="sex">
                 </el-table-column>
                 <el-table-column label="日期" prop="date">
+                </el-table-column>
+                <el-table-column label="地址" prop="address">
+                </el-table-column>
+                <!-- fixed="right"固定在表格的右边缘，即使在滚动时也不会移动 -->
+                <el-table-column fixed="right" label="操作" width="120">
+                  <!-- el-table 和 el-table-column 组件自带作用域插槽，允许你通过 v-slot 访问每一行的数据 -->
+                  <!-- el-table-column 提供了作用域插槽，因此可以通过 v-slot 获取 scope 这个上下文对象，以访问当前行的数据 -->
+                    <!-- <template #default> -->
+                    <template v-slot:default="scope">
+                    <el-button link type="primary" size="small" @click="handleClick(scope.row)">
+                      Detail
+                    </el-button>
+                    <el-button link type="primary" size="small" @click="handleEdit(scope.row)">Edit</el-button>
+                  </template>
                 </el-table-column>
               </el-table>
             </div>
@@ -77,72 +99,113 @@
 </template>
 
 <script lang="ts">
-// 定义Vue组件的主要方法
-import {
-  defineComponent
-} from 'vue';
+import { defineComponent } from 'vue'
 
-// 组件的选项（如名称、属性、方法等），并返回一个Vue组件构造器
-// defineComponent() 函数接收一个对象参数，该对象包含组件选项，如 data、methods、computed、watch、components、directives 等。
-// 返回的构造器可以用于创建组件实例。
-// export default用于导出单个主要的模块输出，这使得其他文件可以方便地导入和使用这个组件
-// 当你使用TypeScript时，defineComponent会提供更好的类型检查
-// 返回的组件实例具有一个合成的构造函数，这对于手动渲染函数、TSX（TypeScript的JSX扩展）以及IDE工具支持是必要的
+
+interface User {
+  date: string
+  name: string
+  address: string
+  age:number
+  sex:string
+}
+
 export default defineComponent({
-  // 组件的名称，主要用于开发工具中的识别和调试
   name: 'HelloWorld',
-  // 组件接受的外部属性。在这里，组件有一个名为msg的属性，其类型为字符串。这意味着你可以向HelloWorld组件传递一个字符串值，该值将在组件内部使用
-  // 父组件可以通过<hello-world msg="Hello, Vue!" />将消息传递给HelloWorld组件
-  // 不使用defineComponent，缺少类型支持和最佳实践的遵循。
-  // props: {
-  //   msg: String,
-  // },
-
   data() {
     return{
       desc:"七年级1班学生统计",
-      stus:[
+      tableData:[
        {
         name:"小王",
         age:14,
         sex:'男',
-        date:"2020年8月15日"
+        date:"2016-05-03",
+        address:"湖南长沙1"
        },
        {
         name:"小张",
         age:20,
         sex:'男',
-        date:"2024年10月11日"
+        date:"2024年10月11日",
+        address:"湖南长沙2"
        },
        {
         name:"小秋",
         age:16,
         sex:'女',
-        date:"2002年2月5日"
+        date:"2002年2月5日",
+        address:"湖南长沙3"
+       },
+       {
+        name:"小李",
+        age:17,
+        sex:'女',
+        date:"2004年2月5日",
+        address:"湖南长沙4"
        }
       ]
     }
   },
-  methods:{
+  methods: {
     selectFunc(index:number){
       let strs = ["七", "八", "九"]
       let rank = strs[Math.floor((index-1)/3)]
       this.desc = `${rank}年级${((index-1)%3)+1}班学生统计`
-    }
-  }
-});
+    },
+    handleClick(row: User) {
+      // console.log('Detail:', row);
+      alert(`Detail:\nName: ${row.name}\nAge: ${row.age}\nSex: ${row.sex}\nDate: ${row.date}\nAddress: ${row.address}`);
+    },
+    handleEdit(row: User) {
+      // console.log('Detail:', row);
+      alert(`Edit:\nName: ${row.name}\nAge: ${row.age}\nSex: ${row.sex}\nDate: ${row.date}\nAddress: ${row.address}`);
+    },
+    tableRowClassName({rowIndex }: {rowIndex: number }) {
+      if (rowIndex === 1) {
+        return 'warning-row'
+      } else if (rowIndex === 3) {
+        return 'success-row'
+      }
+      return ''
+    },
+  },
+})
 </script>
-<style scoped>
+
+<style>
 .desc {
   font-size: 25px;
-  line-height:80px;
+  line-height: 80px;
   color: white;
-  width: 800px;
+  width: 100%;
+  text-align: center;
 }
-.subHeader{
-  background-color: cornflowerblue;
+
+/* flex居中 */
+/* .desc-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center; 
+  align-items: center;
+} */
+.subHeader {
+  background-color: rgb(42, 107, 228);
 }
-.content{
-  height:410px;
+.content {
+  height: 410px;
+}
+
+.button-container {
+  display: flex;  /* 使用flex布局 */
+  justify-content: flex-end;  /* 内容居右 */
+  flex-grow: 1;  /* 占用剩余空间 */
+}
+
+.el-table .warning-row {
+  --el-table-tr-bg-color: var(--el-color-warning-light-9);
+}
+.el-table .success-row {
+  --el-table-tr-bg-color: var(--el-color-success-light-9);
 }
 </style>
