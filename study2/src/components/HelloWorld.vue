@@ -1,9 +1,11 @@
 <template>
   <el-container>
-    <el-header height="80px" style="background-color: gray;">
+    <el-header height="80px" style="padding: 0;margin: 0;">
       <div class="header">教务系统学生管理</div>
     </el-header>
+    <!-- <el-container>：外层容器 -->
       <el-container>
+        <!-- <el-aside>：侧边栏容器。 -->
           <el-aside width="200px">
           <el-menu class="aside" @select="selectFunc" default-active="1" :unique-opened="true" mode="vertical">
             <el-sub-menu index="1">
@@ -62,6 +64,7 @@
           </el-header>
 
           <!-- 显示列表数据 -->
+          <!-- <el-main>：主要区域容器 -->
           <el-main style="margin: 0;padding: 0;">
             <div class="content">
               <!-- stripe斑马条纹、border竖直方向的边框 -->
@@ -92,7 +95,8 @@
               </el-table>
             </div>
           </el-main>
-
+          <!-- <el-footer>：底栏容器 -->
+            <el-footer height="30px" class="footer">Vue框架搭建，ElementPlus提供组件支持</el-footer>
         </el-container>
       </el-container>
   </el-container>
@@ -189,8 +193,19 @@ export default defineComponent({
   justify-content: center; 
   align-items: center;
 } */
+.header {
+    font-size: 30px;
+    line-height: 80px;
+    background-color: #7be771;
+    text-align: center;
+    color: white;
+}
+.aside {
+    background-color: wheat;
+    height: 600px;
+}
 .subHeader {
-  background-color: rgb(42, 107, 228);
+    background-color:cornflowerblue;
 }
 .content {
   height: 410px;
@@ -200,6 +215,14 @@ export default defineComponent({
   display: flex;  /* 使用flex布局 */
   justify-content: flex-end;  /* 内容居右 */
   flex-grow: 1;  /* 占用剩余空间 */
+}
+
+.footer {
+    /* background-color:dimgrey; */
+    color: rgb(187, 183, 183);
+    font-size: 13px;
+    line-height: 30px;
+    text-align: center;
 }
 
 .el-table .warning-row {
