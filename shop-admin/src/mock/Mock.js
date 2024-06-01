@@ -14,7 +14,7 @@ const Mock = {
                 'state':mockjs.Random.boolean(),
                 'payType':mockjs.Random.boolean(),
                 'source':mockjs.Random.url(),
-                'phone':mockjs.mock(/\d{11}/)
+                'phone':mockjs.mock(/^1\d{10}/)
             }))
         }
         return array;
