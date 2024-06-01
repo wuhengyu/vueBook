@@ -1,4 +1,5 @@
 <template>
+  {{ msg }}
   <el-container>
     <el-header height="80px" style="padding: 0;margin: 0;">
       <div class="header">教务系统学生管理</div>
