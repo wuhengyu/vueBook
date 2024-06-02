@@ -18,7 +18,7 @@
                     店长状态:
                 </div>
                 <div class="input-field">
-                    <el-select v-model="queryParams.state" placeholder="请选择">
+                    <el-select v-model="queryParams.state" placeholder="请选择" style="width: 120px">
                         <el-option key="1" label="后台开通" value="1">
                         </el-option>
                         <el-option key="2" label="站外申请" value="2">

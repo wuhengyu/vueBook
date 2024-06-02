@@ -20,8 +20,9 @@
                     商品分类:
                 </div>
                 <div class="input-field">
-                    <el-select v-model="queryParams.category" placeholder="请选择分类">
-                        <el-option v-for="item in categorys" :key="item" :label="item" :value="item">
+                    <el-select v-model="queryParams.category" placeholder="请选择分类" size="default" style="width: 120px">
+                        <el-option v-for="item in categorys" :key="item.value" :label="item.label" :value="item.label">
+                        <!-- <el-option v-for="item in categorys" :key="item" :label="item" :value="item"> -->
                         </el-option>
                     </el-select>
                 </div>
@@ -31,7 +32,7 @@
                     是否上架:
                 </div>
                 <div class="input-field">
-                    <el-select v-model="sellModeString">
+                    <el-select v-model="sellModeString" placeholder="请选择分类" size="default" style="width: 120px">
                         <el-option key="0" label="否" :value="0"></el-option>
                         <el-option key="1" label="是" :value="1"></el-option>
                         <el-option key="2" label="全部" :value="2"></el-option>
@@ -41,7 +42,7 @@
                     是否过期:
                 </div>
                 <div class="input-field">
-                    <el-select v-model="expModeString">
+                    <el-select v-model="expModeString" placeholder="请选择分类" size="default" style="width: 120px">
                         <el-option key="0" label="否" :value="0"></el-option>
                         <el-option key="1" label="是" :value="1"></el-option>
                         <el-option key="2" label="全部" :value="2"></el-option>
@@ -122,14 +123,29 @@
 <script>
 import Mock from '../../mock/Mock'
 export default {
+
     data() {
         return {
             goodsData:[],
             // 模拟分类数据
+            // categorys:[
+            //     "全部",
+            //     "男装",
+            //     "女装"
+            // ],
             categorys:[
-                "全部",
-                "男装",
-                "女装"
+                {
+                    label:"全部",
+                    value:"all"
+                },
+                {
+                    label:"男装",
+                    value:"man"
+                },
+                {
+                    label:"女装",
+                    value:"woman"
+                }
             ],
             queryParams:{
                 name:"",
@@ -191,7 +207,7 @@ export default {
             this.queryParams = {
                 name:"",
                 id:"",
-                category:"",
+                categorys:"",
                 sellMode:2, 
                 expMode:2,
             }

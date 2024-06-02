@@ -1,11 +1,11 @@
 <template>
     <div class="content-container" direction="vertical">
         <el-container class="content-row">
-            <div class="info">总交易额：{{this.data.allTra}}</div>
-            <div class="info">秒杀交易额：{{this.data.speTra}}</div>
-            <div class="info">普通商品交易额：{{this.data.norTra}}</div>
-            <div class="info">累计用户数：{{this.data.userCount}}</div>
-            <div class="info">分销总用户数：{{this.data.managerCount}}</div>
+            <div class="info">总交易额：{{this.data.allTra}}元</div>
+            <div class="info">秒杀交易额：{{this.data.speTra}}元</div>
+            <div class="info">普通商品交易额：{{this.data.norTra}}元</div>
+            <div class="info">累计用户数：{{this.data.userCount}}人</div>
+            <div class="info">分销总用户数：{{this.data.managerCount}}人</div>
         </el-container>
         <el-container class="content-row">
             <el-radio-group @change="changeType" v-model="type">
