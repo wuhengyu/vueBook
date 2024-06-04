@@ -42,6 +42,7 @@ const Mock = {
         let array = [];
         for (let i = 0; i < mockjs.Random.integer(5,10); i ++) {
             array.push(mockjs.mock({
+                // 如果type等于0，则选择'普通商品 '作为前缀。如果type等于1，则选择"秒杀商品"作为前缀。如果type既不是0也不是1，则隐含的情况是选择"今日推荐"作为前缀。
                 'name':(type == 0 ? '普通商品 ' : type == 1 ? "秒杀商品":"今日推荐") + i,
                 'img':mockjs.Random.dataImage('60x100', '商品示例图'),
                 'price':mockjs.Random.integer(20,500) + '元',

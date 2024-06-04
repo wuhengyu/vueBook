@@ -28,8 +28,9 @@ body {
 }
 .content-container {
   background-color: white;
-  padding: 20px;
-  margin: 20px;
+  padding: 30px;
+  margin: 30px; 
+  /* margin-top:30px; */
   border-radius: 10px;
   /* 设置最小宽度为1200像素，确保内容在窄屏设备上不会过于挤压。 */
   min-width:1200px;
@@ -41,7 +42,7 @@ body {
   /* inline是行内元素，元素会按照文本流的方式排列，不会换行，只占据其内容的宽度。不能设置宽高：无法直接指定宽度和高度，它们由内容自动确定。
   边距限制：margin和padding仅影响左右，对上下方向无效（除非使用vertical-align）。默认间距：元素间可能有默认的空白间距，受字体和换行符影响。 */
   /* display:inline-block;  */
-  width:90%;
+  width:93%;
 }
 .input-tip {
   margin: 0 10px;
