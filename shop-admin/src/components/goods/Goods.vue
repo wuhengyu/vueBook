@@ -68,9 +68,9 @@
                 label="商品"
                 header-align="center"
                 align="center"
-                width="150px">
+                width="200px">
                     <template #default="scope">
-                        <div style="text-align:center"><el-image :src="scope.row.img" style="width: 100px; height: 100px"/></div>
+                        <div style="text-align:center"><el-image :src="scope.row.img" style="width: 50px; height: 50px"/></div>
                         <div style="text-align:center">{{scope.row.name}}</div>
                     </template>
                 </el-table-column>
@@ -135,7 +135,7 @@
                 label="更新时间"
                 align="center"
                 header-align="center"
-                width="200"
+                width="250"
                 prop="time">
                 </el-table-column>
             </el-table>

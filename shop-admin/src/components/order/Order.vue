@@ -150,7 +150,7 @@
                 </el-table-column>
                 <el-table-column
                 label="来源"
-                width="350"
+                width="300"
                 prop="source">
                 </el-table-column>
             </el-table>
