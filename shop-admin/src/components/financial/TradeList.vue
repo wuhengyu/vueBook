@@ -1,5 +1,6 @@
 <template>
-    <div class="content-container" direction="vertical">
+    <el-scrollbar always>
+    <div class="content-container">
         <div>
             <el-tabs type="card" @tab-click="handleClick">
                 <el-tab-pane label="日汇总"></el-tab-pane>
@@ -34,6 +35,7 @@
             </el-table>
         </div>
     </div>
+</el-scrollbar>
 </template>
 
 <script>

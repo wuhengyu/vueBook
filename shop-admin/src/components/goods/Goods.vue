@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <!-- <div class="content-container" direction="vertical"> -->
+    <el-scrollbar always>
         <div class="content-container">
         <div>
             <el-container class="content-row">
@@ -141,6 +141,7 @@
             </el-table>
         </div>
     </div>
+</el-scrollbar>
 </template>
 
 <script>

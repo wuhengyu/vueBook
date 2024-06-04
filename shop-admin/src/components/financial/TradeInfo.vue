@@ -1,5 +1,6 @@
 <template>
-    <div class="content-container" direction="vertical">
+    <el-scrollbar always>
+    <div class="content-container">
         <div>
             <el-container class="content-row">
                 <div class="input-tip">
@@ -60,22 +61,22 @@
             style="width: 100%">
                 <el-table-column
                 label="名称"
-                width="400"
+                width="500"
                 prop="name">
                 </el-table-column>
                 <el-table-column
                 label="单号"
-                width="150"
+                width="300"
                 prop="id">
                 </el-table-column>
                 <el-table-column
                 label="用户"
-                width="100"
+                width="200"
                 prop="user">
                 </el-table-column>
                 <el-table-column
                 label="支付方式"
-                width="100"
+                width="200"
                 prop="payType">
                 </el-table-column>
                 <el-table-column
@@ -86,6 +87,7 @@
             </el-table>
         </div>
     </div>
+</el-scrollbar>
 </template>
 
 <script>

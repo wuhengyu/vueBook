@@ -1,5 +1,6 @@
 <template>
-    <div class="content-container" direction="vertical">
+<el-scrollbar always>
+    <div class="content-container">
         <div>
             <el-container class="content-row">
                 <div class="input-tip">
@@ -38,41 +39,41 @@
             style="width: 100%">
                 <el-table-column
                 label="分销人信息"
-                width="200"
+                width="300"
                 prop="people">
                 </el-table-column>
                 <el-table-column
                 label="微信信息"
-                width="150"
+                width="200"
                 prop="weixin">
                 </el-table-column>
                 <el-table-column
                 label="状态"
-                width="100">
+                width="200">
                     <template #default="scope">
                           <el-tag :type="scope.row.state ? 'success' : ''">{{scope.row.state ? '激活' : '审核中'}}</el-tag>
                     </template>
                 </el-table-column>
                 <el-table-column
                 label="收入总额"
-                width="100"
+                width="150"
                 prop="income">
                 </el-table-column>
                 <el-table-column
                 label="退款"
-                width="100"
+                width="150"
                 prop="back">
                 </el-table-column>
                 <el-table-column
                 label="来源"
-                width="100">
+                width="150">
                     <template #default="scope">
                           <el-tag>{{scope.row.source}}</el-tag>
                     </template>
                 </el-table-column>
                 <el-table-column
                 label="客户数"
-                width="100"
+                width="150"
                 prop="customer">
                 </el-table-column>
                 <el-table-column
@@ -83,6 +84,7 @@
             </el-table>
         </div>
     </div>
+</el-scrollbar>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <div class="content-container" direction="vertical">
+    <el-scrollbar always>
+    <div class="content-container">
         <div>
             <el-container class="content-row">
                 <div class="input-tip">
@@ -107,6 +108,7 @@
             </el-table>
         </div>
     </div>
+</el-scrollbar>
 </template>
 
 <script>

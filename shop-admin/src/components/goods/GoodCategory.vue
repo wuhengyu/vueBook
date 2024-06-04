@@ -1,5 +1,5 @@
 <template>
-    <!-- <div class="content-container" direction="vertical"> -->
+    <el-scrollbar always>
     <div class="content-container">
         <el-container class="content-row">
             <el-button type="primary" @click="addCategory">添加分类</el-button>
@@ -35,6 +35,7 @@
         </el-table>
     </div>
     </div>
+</el-scrollbar>
 </template>
 
 <script>
@@ -65,23 +66,23 @@ export default {
             this.categoryList.splice(index,1)
         },
         addCategory() {
-        ElMessageBox.prompt('Please input your e-mail', 'Tip', {
-            confirmButtonText: 'OK',
-            cancelButtonText: 'Cancel',
+        ElMessageBox.prompt('请输入email', '消息框标题', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
             inputPattern:
             /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
-            inputErrorMessage: 'Invalid Email',
+            inputErrorMessage: '无效的email',
         })
             .then(({ value }) => {
             ElMessage({
                 type: 'success',
-                message: `Your email is:${value}`,
+                message: `你的email是:${value}`,
                 })
             })
             .catch(() => {
             ElMessage({
                 type: 'info',
-                message: 'Input canceled',
+                message: '输入取消',
                 })
             })
         }
