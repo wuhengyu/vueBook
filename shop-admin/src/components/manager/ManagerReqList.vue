@@ -53,7 +53,7 @@
                 width="200"
                 prop="reqTime">
                     <template #default='scope'>
-                        <el-button size="mini" @click='click(scope.row)' :type="scope.row.state ? 'danger' : 'success'">{{scope.row.state ? '下线' : '通过'}}</el-button>
+                        <el-button size="small" @click='click(scope.row)' :type="scope.row.state ? 'danger' : 'success'">{{scope.row.state ? '下线' : '通过'}}</el-button>
                     </template>
                 </el-table-column>              
             </el-table>

@@ -51,7 +51,7 @@
                 label="状态"
                 width="200">
                     <template #default="scope">
-                          <el-tag :type="scope.row.state ? 'success' : ''">{{scope.row.state ? '激活' : '审核中'}}</el-tag>
+                          <el-tag :type="scope.row.state ? 'success' : 'info'">{{scope.row.state ? '激活' : '审核中'}}</el-tag>
                     </template>
                 </el-table-column>
                 <el-table-column
