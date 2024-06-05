@@ -63,7 +63,10 @@
             <el-table
             :data="goodsData"
             tooltip-effect="dark"
+            stripe
+            border
             style="width: 100%">
+            <el-table-column type="selection" width="55" />
                 <el-table-column
                 label="商品"
                 header-align="center"
