@@ -3,8 +3,11 @@ const Mock = {
     // 模拟获取订单数据
     // type: 订单类型 0为普通订单 1为秒杀订单
     getOrder(type) {
+        // 创建一个名为array的空数组，用于存储即将生成的订单对象。
         let array = [];
+        // 生成一个5到10之间的随机整数，作为循环的次数，确保每次调用时返回的订单数量不同。
         for (let i = 0; i < mockjs.Random.integer(5,10); i ++) {
+            // 在每次循环中，使用mockjs.mock()方法构造一个订单对象
             array.push(mockjs.mock({
                 'name':type == 0 ? '普通商品 ' : "秒杀商品" + i,
                 'price':mockjs.Random.integer(20,500) + '元',
@@ -13,7 +16,9 @@ const Mock = {
                 'role':mockjs.Random.boolean(),
                 'state':mockjs.Random.boolean(),
                 'payType':mockjs.Random.boolean(),
+                // 生成一个随机的URL字符串
                 'source':mockjs.Random.url(),
+                // 以1开头的11位数字
                 'phone':mockjs.mock(/^1\d{10}/)
             }))
         }

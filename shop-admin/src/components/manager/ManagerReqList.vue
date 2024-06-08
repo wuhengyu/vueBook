@@ -1,3 +1,4 @@
+<!-- 店长申请审批列表 -->
 <template>
     <el-scrollbar always>
     <div class="content-container">
@@ -92,6 +93,8 @@ export default {
             };
             this.managerList = Mock.getManagerReqList();
         },
+        // 接收当前行数据item作为参数，然后简单地切换item.state的布尔值，即如果当前状态为真，则设为假，反之亦然
+        // item是一个变量，它代表了在表格(el-table)中每一行的数据对象。当用户点击某一行的操作按钮时，Vue会将该行对应的row数据作为参数传递给事件处理器函数
         click(item) {
             item.state = !item.state;
         }     

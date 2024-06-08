@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div ref="chart"></div>
 </template>
@@ -17,11 +18,20 @@ export default {
     mounted() {
         this.refresh()
     },
+    beforeUnmount() { 
+        if (this.chartInstance) {
+            this.chartInstance.dispose();
+        }
+    },
     methods: {
         refresh() {
-            let chart = echarts.init(this.$refs.chart);
-            chart.clear()
-            chart.setOption({
+            // let chart = echarts.init(this.$refs.chart);
+            if (!this.chartInstance) {
+                // Initialize a new instance if it doesn't exist.
+                this.chartInstance = echarts.init(this.$refs.chart);
+            }
+            this.chartInstance.clear()
+            this.chartInstance.setOption({
                 xAxis:{
                     data:this.xData
                 },
@@ -35,6 +45,11 @@ export default {
                 }
             });
         }
+    },
+    data() {
+        return {
+            chartInstance: null,
+        };
     }
 }
 </script>

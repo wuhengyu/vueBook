@@ -27,7 +27,8 @@ export default {
 <template>
   <!-- 外层容器 -->
   <el-container id="container" class="layout-container-demo">
-    <el-scrollbar always>
+    <!-- always 滚动条总是显示, 默认false -->
+    <el-scrollbar>
     <!-- 侧边栏容器 -->
       <el-aside width="250px" stype="border-right:1px solid #eee;overflow:hidden">
           <el-container id="top">
