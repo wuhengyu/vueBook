@@ -24,5 +24,7 @@ module.exports = {
         ignores: [],
       },
     ],
+    // 关掉prettier的检测
+    "prettier/prettier": "off",
   },
 };
