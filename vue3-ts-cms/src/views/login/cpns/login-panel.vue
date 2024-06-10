@@ -16,7 +16,7 @@
             <el-icon><Iphone /></el-icon> 手机登录
           </span>
         </template>
-        <!-- <login-phone /> -->
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
 
@@ -35,6 +35,7 @@
 import { ref, onMounted } from "vue";
 import localCache from "@/utils/cache";                                                                                                           
 import LoginAccount from "./login-account.vue";
+import LoginPhone from "./login-phone.vue";
 
 
 const isKeepPassword = ref(true);
@@ -42,8 +43,8 @@ const accountRef = ref<InstanceType<typeof LoginAccount>>();
 const currentTab = ref("account");
 
 onMounted(() => {
-  // 回显用户名和密码（默认回显：coderwhy  123456）
-  const name = localCache.getCache("name") || "coderwhy";
+  // 回显用户名和密码（默认回显：root  123456）
+  const name = localCache.getCache("name") || "root";
   const password = localCache.getCache("password") || "123456";
   accountRef.value?.setFormFields(name, password);
 });
@@ -51,16 +52,18 @@ const handleLoginClick = () => {
   // 账号登录方式
   if (currentTab.value === "account") {
     accountRef.value?.loginAction(isKeepPassword.value);
+    alert("账号登录");
   } else {
     // 手机登录方法 todo
+    alert("手机登录");
   }
 };
 </script>
 
 <style scoped lang="less">
 .login-panel {
-  margin-bottom: 150px;
-  width: 320px;
+  margin-bottom: 350px;
+  width: 400px;
 
   .title {
     text-align: center;
