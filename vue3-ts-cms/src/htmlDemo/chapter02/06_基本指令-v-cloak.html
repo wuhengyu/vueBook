@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- 用于隐藏元素，使其在页面上完全不可见 -->
   <style>
     [v-cloak] {
       display: none;
@@ -15,6 +16,7 @@
   <div id="app"></div>
 
   <template id="my-app">
+    <!-- 在计算机性能较差的电脑上，可以先隐藏未编译的mustache语法电脑标签，避免先显示mustache语法再显示正常。直到组件完成编译，需要和CSS规则一起使用 -->
     <h2 v-cloak>{{message}}</h2>
   </template>
 

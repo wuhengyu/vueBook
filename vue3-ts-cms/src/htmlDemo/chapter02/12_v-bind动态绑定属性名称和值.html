@@ -14,6 +14,8 @@
     <div :[name]="value">v-bind动态绑定属性名称和值</div>
     <!-- 等价于 -->
     <div v-bind:[name]="value">v-bind动态绑定属性名称和值</div>
+    <!-- 等价于，不同的是name不一样 -->
+    <div :name="value">v-bind动态绑定属性名称和值</div>
   </template>
 
   <script src="./js/vue.js"></script>
