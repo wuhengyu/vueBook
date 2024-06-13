@@ -12,6 +12,9 @@
   <template id="my-app">
     <h4>{{firstName + " " + lastName}}</h4>
     <h4>{{score >= 60 ? '及格': '不及格'}}</h4>
+    <!-- split(" ")：将message字符串按照空格分隔成一个数组。 -->
+    <!-- reverse()：将数组中的元素倒序排列。 -->
+    <!-- join(" ")：将倒序排列后的数组元素用空格连接成一个新的字符串。 -->
     <h4>{{message.split(" ").reverse().join(" ")}}</h4>
   </template>
 

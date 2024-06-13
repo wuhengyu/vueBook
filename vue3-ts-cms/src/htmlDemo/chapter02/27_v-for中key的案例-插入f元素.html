@@ -11,6 +11,7 @@
 
   <template id="my-app">
     <ul>
+      <!-- :key属性用于唯一标识每个元素，它的值是数组元素本身。 -->
       <li v-for="item in letters" :key="item">{{item}}</li>
     </ul>
     <button @click="insertF">插入F元素</button>
@@ -22,11 +23,16 @@
       template: '#my-app',
       data() {
         return {
-          letters: ['a', 'b', 'c', 'd']
+          letters: ['a', 'b', 'c', 'd', 'd']
         }
       },
       methods: {
         insertF() {
+          //用于直接在数组中插入或删除元素，会改变原数组。
+          //第一个参数 2: 指定了操作开始的位置。
+          //第二个参数 0: 表示要删除的元素数量。
+          //第三个参数 'f': 是要插入到数组中的新元素。
+          //此函数的主要功能是在名为 letters 的数组中特定位置（索引2）插入字符 'f'，而不会影响到该位置原有的元素。
           this.letters.splice(2, 0, 'f')
         }
       }

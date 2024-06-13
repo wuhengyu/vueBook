@@ -10,6 +10,8 @@
   <div id="app"></div>
 
   <template id="my-app">
+    <!-- 在Vue中，v-if, v-else-if, 和 v-else 是互斥的条件渲染指令，它们会根据条件从上到下检查，一旦找到一个真（truthy）的条件，就渲染对应的块，并停止继续检查之后的条件。 -->
+    <!-- 即使多个条件可能同时为真，也只会渲染第一个匹配到的块。 -->
     <input type="text" v-model="score">
     <h2 v-if="score >= 90">优秀</h2>
     <h2 v-else-if="score >= 60">良好</h2>

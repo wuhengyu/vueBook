@@ -17,6 +17,7 @@
       div
       <button @click.stop="btnClick">button按钮</button>
     </div>
+    <!-- 监听keyup键盘抬起事件，enter按下enter键 -->
     <input type="text" @keyup.enter="enterKeyup">
   </template>
 
@@ -37,6 +38,7 @@
           console.log('btnClick');
         },
         enterKeyup(event) {
+          console.log(event)
           console.log("keyup", event.target.value);
         }
       }

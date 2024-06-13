@@ -23,24 +23,39 @@
       template: '#my-app',
       data() {
         return {
-          info: { name: "coderwhy", age: 18, book: {name: 'Vue.js 3+TS'} }
+          info: { name: "wuhengyu", age: 20, book: {name: 'Vue.js 3+TS'} }
         }
       },
       watch: {
         // 侦听info对象的更新
         info: {
+          //当监听属性变化时会调用的函数
           handler: function(newInfo, oldInfo) {
             console.log("newValue:", newInfo, "oldValue:", oldInfo);
+          },
+          // 深度侦听 info 对象的更新（info内部发生的改变是可以侦听到的），默认值是false
+          deep: true,
+          // 让侦听器立即执行一次，无需变化
+          immediate:false,
+        },
+        // 侦听info.book.name的更新
+        'info.book.name': {
+          handler(newValue, oldValue) {
+            console.log("info.book.name newValue:", newValue, "oldValue:", oldValue);
           }
         }
       },
       methods: {
+        //通过设置this.info为一个全新的对象来改变info的值
+        //由于是一个全新的对象，这意味着对象的引用（地址）已经改变
         changeInfo() {
           this.info = { name: "kobe", age: 18, book: {name: 'Vue3+TS'} }
         },
+        //直接修改info对象的一个属性（如info.name），Vue.js能够检测到这一变更，并触发重新渲染。但在这个过程中，info对象的引用并没有改变，Vue使用了Proxy来代理对象，所以你实际上在两个时刻访问的是同一个代理过的对象。
         changeInfoName() {
           this.info.name = "rose";
         },
+        //当watcher的handler被调用时，由于JavaScript的引用特性，新旧对象实际上都是指向了同一个代理过的info对象。
         changeInfoBookName() {
           this.info.book.name = "React+TS";
         }

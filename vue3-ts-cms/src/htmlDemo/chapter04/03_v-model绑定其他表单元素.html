@@ -13,7 +13,7 @@
   <template id="my-app">
     <!-- 1.绑定textarea（cols：显示的列数；rows:显示的行数） -->
     <div>1. 自我介绍</div>
-    <textarea cols="30" rows="3" v-model="intro"></textarea>
+    <textarea cols="40" rows="3" v-model="intro"></textarea>
     <p>文本输入框的值: {{intro}}</p>
 
     <!-- 2.checkbox单选框（label元素作用是当点击同意协议文本，会自动触发input的点击） -->
@@ -67,7 +67,7 @@
           intro: "Hello World", // 1.自我介绍
           isAgree: false,// 2.1 同意协议
           hobbies: ["basketball"], // 2.2 爱好
-          gender: "", // 3.性别
+          gender: "male", // 3.性别
           fruit: ["orange"] // 4.喜欢的水果
         }
       }

@@ -33,6 +33,8 @@
       },
       methods: {
         showTopThreeMovie() {
+          //数组对象filter()方法，该方法接受一个回调函数作为参数, filter是一个高阶函数，回调函数接收两个参数，用于创建一个新的数组
+          //如果索引小于3，则表达式返回true，意味着该元素将被保留在新数组中，否则，返回false，该元素将被过滤掉。
           this.movies = this.movies.filter((movie, index) => index < 3 )
         }
       }

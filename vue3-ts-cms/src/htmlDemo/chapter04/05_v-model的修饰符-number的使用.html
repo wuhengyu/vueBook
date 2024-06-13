@@ -10,6 +10,7 @@
   <div id="app"></div>
 
   <template id="my-app">
+    <!-- 绑定的数据是score。同时，使用了.number修饰符，确保用户输入的数据被解析为数字类型。 -->
     <input type="text" v-model.number="score">
     <!-- type 查看 score 的类型 -->
     <h2>{{score}} -> {{typeof this.score}} 类型</h2>

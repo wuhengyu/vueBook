@@ -10,6 +10,9 @@
   <div id="app"></div>
 
   <template id="my-app">
+    <!-- 隐藏DOM，控制的元素也会被渲染，但是不会显示，v-if的条件是false时，不会被渲染 -->
+    <!-- 不可以和v-else一起使用 -->
+    <!-- 不支持在template标签上使用 -->
     <h4 v-show="isShow">isShow条件渲染基本使用</h4>
   </template>
 
