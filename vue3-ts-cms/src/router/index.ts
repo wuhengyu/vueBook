@@ -1,32 +1,50 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import login from "../views/login/login.vue";
- 
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import localCache from '@/utils/cache'
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: '/',
+    redirect: '/main'
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: '/login', // 登录页面
+    name: 'login',
+    component: () => import('@/views/login/login.vue')
   },
   {
-    path: "/login",
-    name: "login",
-    component: login,
+    path: '/main', // 首页布局
+    name: 'main',
+    component: () => import('@/views/main/main.vue'),
+    children: [
+      // {
+      //   path: 'system/user', // 用户管理 页面（使用动态注册）
+      //   name: 'user',
+      //   component: () => import('@/views/main/system/user/user.vue')
+      // }
+    ]
   },
-];
+  {
+    path: '/:pathMatch(.*)*', // 没有匹配的路径显示该页面
+    name: 'notFound',
+    component: () => import('@/views/not-found/not-found.vue')
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
+  routes
+})
 
-export default router;
+// 导航守卫
+router.beforeEach((to) => {
+  if (to.path !== '/login') {
+    const token = localCache.getCache('token')
+    if (!token) {
+      return '/login'
+    }
+  }
+  if (to.path === '/main') {
+    // todo 暂时写成跳出到用户列表页
+    return '/main/system/user'
+  }
+})
+export default router

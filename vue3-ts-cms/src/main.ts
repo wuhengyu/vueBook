@@ -8,6 +8,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // 引入图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import './assets/css/index.less'
 
 const app = createApp(App)
 

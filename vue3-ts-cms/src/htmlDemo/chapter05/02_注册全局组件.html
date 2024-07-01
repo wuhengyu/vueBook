@@ -19,6 +19,8 @@
 
     <template id="my-app">
         <!--7.引用component-c全局组件, DOM使用不支持<ComponentC></ComponentC>引用  -->
+        <!-- 由于不是工程化项目，所以不能使用帕斯卡语法使用该组件, 只能使用短横线隔开命名法 -->
+        <!-- <ComponentC></ComponentC> -->
        <component-c></component-c>
         <!--6.引用一个component-b全局组件  -->
        <component-b></component-b>
@@ -44,7 +46,7 @@
     <!-- 7.编写一个component-c全局组件引用的模板 -->
     <template id="component-c">
         <div class="comps-c">
-          ComponentCCCCC
+          ComponentC
         </div>
     </template>
 
@@ -82,8 +84,9 @@
             }
         }
       });
+      //帕斯卡命名法命名ComponentC，每个单词首字母必须大写，包括第一个单词
       // 8.使用app注册一个 ComponentC 全局组件 app.component()
-      app.component("component-c", {
+      app.component("ComponentC", {
         template: "#component-c", // 引入第一步定义的模板
       });
 
