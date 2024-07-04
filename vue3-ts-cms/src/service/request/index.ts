@@ -25,11 +25,6 @@ class HYRequest<T = any> {
       this.interceptors?.requestInterceptor,
       this.interceptors?.requestInterceptorCatch
     )
-    // this.instance.interceptors.request.use(
-    //   this.interceptors?.requestInterceptor as (value: InternalAxiosRequestConfig<any>) => InternalAxiosRequestConfig<any> | Promise<InternalAxiosRequestConfig<any>>,
-    //   this.interceptors?.requestInterceptorCatch
-    // );
-
     this.instance.interceptors.response.use(
       this.interceptors?.responseInterceptor,
       this.interceptors?.responseInterceptorCatch

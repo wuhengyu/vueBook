@@ -37,7 +37,7 @@
 import { ref, onMounted } from "vue";
 // 导入一个本地缓存工具模块，用于读取和存储数据。
 import localCache from "@/utils/cache";
-// 分别导入账号登录和手机登录的子组件。                                                                                                    
+// 分别导入账号登录和手机登录的子组件。
 import LoginAccount from "./login-account.vue";
 import LoginPhone from "./login-phone.vue";
 
@@ -81,7 +81,7 @@ const handleLoginClick = () => {
 .login-panel {
   width: 400px;
   // 下边距为350像素
-  margin-bottom: 800px;
+  margin-bottom: 600px;
   margin-top: 150px;
 
   .title {
