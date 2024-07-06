@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, defineExpose  } from "vue";
+import { reactive, ref } from "vue";
 import { useStore } from "vuex";
 import localCache from "@/utils/cache";
 import type { ElForm } from "element-plus";

@@ -83,7 +83,10 @@ const props = withDefaults(defineProps<Props>(), {
       background-color: #0c2135 !important;
     }
   }
-  ::v-deep .el-submenu__title {
+  // ::v-deep .el-submenu__title {
+  //   background-color: #001529 !important;
+  // }
+  :v-deep(.el-submenu__title) {
     background-color: #001529 !important;
   }
 

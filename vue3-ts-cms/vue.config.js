@@ -24,10 +24,6 @@
 //   }
 // });
 
-
-
-
-
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
 // 按需自动导入组件的插件
@@ -50,6 +46,7 @@ module.exports = defineConfig({
   outputDir: './build',
   publicPath: '/',
   // 开发环境配置proxy代理
+  // eslint-disable-next-line no-dupe-keys
   devServer: {
     proxy: {
       '^/api': {

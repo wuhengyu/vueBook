@@ -47,8 +47,8 @@ const isKeepPassword = ref(true);
 // TypeScript的类型注解
 // InstanceType: 这是TypeScript中的一个实用类型，它允许你从一个构造函数类型（类类型）中获取该构造函数实例的类型。
 // 换句话说，如果typeof LoginAccount代表LoginAccount类本身，那么InstanceType<typeof LoginAccount>就代表LoginAccount类的实例类型。
-  // typeof是一个TypeScript操作符，用于获取一个变量或属性的类型。
-  // 创建一个响应式引用accountRef，存储一个LoginAccount组件的实例。
+// typeof是一个TypeScript操作符，用于获取一个变量或属性的类型。
+// 创建一个响应式引用accountRef，存储一个LoginAccount组件的实例。
 const accountRef = ref<InstanceType<typeof LoginAccount>>();
 // 定义一个字符串类型的响应式变量
 const currentTab = ref("account");
