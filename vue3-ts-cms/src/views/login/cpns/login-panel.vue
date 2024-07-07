@@ -9,6 +9,9 @@
             <el-icon><UserFilled /></el-icon> 账号登录
           </span>
         </template>
+        <!-- 将 ref 属性添加到包含子组件的元素上，这将创建一个引用到该组件实例 -->
+        <!-- 如果不通过模板中的ref属性绑定到<login-account>组件上，accountRef将始终为null，因为它没有被赋予任何组件实例的引用。
+          绑定ref属性是必要的，它完成了从响应式引用到实际组件实例的连接。 -->
         <login-account ref="accountRef" />
       </el-tab-pane>
       <el-tab-pane name="phone">
@@ -48,7 +51,9 @@ const isKeepPassword = ref(true);
 // InstanceType: 这是TypeScript中的一个实用类型，它允许你从一个构造函数类型（类类型）中获取该构造函数实例的类型。
 // 换句话说，如果typeof LoginAccount代表LoginAccount类本身，那么InstanceType<typeof LoginAccount>就代表LoginAccount类的实例类型。
 // typeof是一个TypeScript操作符，用于获取一个变量或属性的类型。
+// 使用 InstanceType 获取子组件实例的类型
 // 创建一个响应式引用accountRef，存储一个LoginAccount组件的实例。
+// ref函数创建的是一个响应式的引用，但是这个引用本身并不直接关联到任何具体的DOM元素或组件实例。
 const accountRef = ref<InstanceType<typeof LoginAccount>>();
 // 定义一个字符串类型的响应式变量
 const currentTab = ref("account");
@@ -57,7 +62,7 @@ onMounted(() => {
   // 回显用户名和密码（默认回显：root  123456）
   // 尝试从localCache中获取之前保存的用户名(name)和密码(password)。
   // || 用作一种简写方式来实现默认值赋值
-  const name = localCache.getCache("name") || "root";
+  const name = localCache.getCache("name") || "coderwhy";
   const password = localCache.getCache("password") || "123456";
   // 如果accountRef已存在（即LoginAccount组件已加载），则调用其setFormFields方法，将用户名和密码填入表单中。
   accountRef.value?.setFormFields(name, password);
@@ -80,7 +85,7 @@ const handleLoginClick = () => {
 <style scoped lang="less">
 .login-panel {
   width: 400px;
-  // 下边距为350像素
+  // 上下边距分别设置为150px和600px。
   margin-bottom: 600px;
   margin-top: 150px;
 
@@ -90,7 +95,9 @@ const handleLoginClick = () => {
 
   .account-control {
     margin-top: 10px;
+    // display: flex: 使元素成为弹性容器。
     display: flex;
+    // 在容器的起始位置和结束位置之间平均分配剩余空间，使元素左右两端对齐。
     justify-content: space-between;
   }
 

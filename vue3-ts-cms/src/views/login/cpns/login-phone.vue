@@ -57,8 +57,9 @@ defineExpose({ loginAction2, setFormFields2 });
 </script>
 <style scoped lang="less">
 .login-phone {
+  // 一维布局模型，可以更灵活地调整项目的位置和大小
   display: flex;
+  // 所有子项将在主轴上居中对齐
   justify-content: center;
 }
-
 </style>

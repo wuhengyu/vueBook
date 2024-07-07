@@ -1,5 +1,5 @@
 <template>
-  <div class="hy-form">
+  <div class="hy-form">h
     <div class="header"><slot name="header"></slot></div>
     <el-form :label-width="labelWidth">
       <el-row>
@@ -59,7 +59,7 @@
 import { IFormItem } from "../types";
 interface Props {
   modelValue: any;
-  labelWidth?: string;
+  labelWidth?: any;
   colLayout?: any;
   itemStyle?: any;
   formItems: IFormItem[];
