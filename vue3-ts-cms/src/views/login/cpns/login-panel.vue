@@ -74,7 +74,7 @@ const handleLoginClick = () => {
     // 传统的链式调用会抛出错误。而使用可选链操作符，如果对象存在，它就会继续访问后面的属性或方法；如果对象是null或undefined，
     // 则整个表达式会安全地返回undefined，而不是抛出错误。
     accountRef.value?.loginAction(isKeepPassword.value);
-    alert("账号登录");
+    alert("登录成功");
   } else {
     // 手机登录方法 todo
     alert("手机登录");
